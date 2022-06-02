@@ -530,6 +530,10 @@ form {
 
 }
 
+.page-controls {
+    border-top: 0px;
+}
+
 /* sponsor page:
 
    * constrain logos to page width for phones.
