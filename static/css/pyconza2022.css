@@ -582,3 +582,12 @@ form {
 .alert-primary a:focus {
     color: #5e141e !important;
 }
+
+/* Collapse nested card divs on sponsor package page */
+
+.wafer-sponsorship-package .card,
+.wafer-sponsorship-package .card-body {
+    border: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
