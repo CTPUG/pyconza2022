@@ -591,3 +591,7 @@ form {
     margin: 0px !important;
     padding: 0px !important;
 }
+
+.wafer-sponsorship-package .card-title {
+    padding: 5px 0 5px 20px !important;
+}
