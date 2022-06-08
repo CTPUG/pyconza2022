@@ -583,15 +583,33 @@ form {
     color: #5e141e !important;
 }
 
-/* Collapse nested card divs on sponsor package page */
+/* Collapse nested card divs on sponsor package and sponsors page */
 
 .wafer-sponsorship-package .card,
-.wafer-sponsorship-package .card-body {
+.wafer-sponsorship-package .card-body,
+.wafer-sponsor .card,
+.wafer-sponsor .card-body {
     border: 0px !important;
     margin: 0px !important;
     padding: 0px !important;
 }
 
-.wafer-sponsorship-package .card-title {
+.wafer-sponsorship-package .card-title, 
+.wafer-sponsor .card-title {
     padding: 5px 0 5px 20px !important;
+}
+
+.wafer-sponsor hr {
+    display: none;
+}
+
+.wafer-sponsors .wafer.list div:nth-child(2n) {
+    background: none;
+}
+
+.wafer-sponsors img {
+    background: none ! important;
+    border: 4px dashed #117d71;
+    border-radius: 25px;
+    padding: 10px;
 }
