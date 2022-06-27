@@ -1,4 +1,4 @@
-wafer >= 0.8.0
+wafer >= 0.13.0
 Django >=2.0, <3.1
 # We need to pin to before 2.9 because of how time zone handled changed in django and
 # later pycopg2 versons
