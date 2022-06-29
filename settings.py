@@ -111,6 +111,19 @@ WAFER_MENUS += (
 )
 
 
+_TICKET_TIERS = ("Student", "Pensioner", "Individual", "Corporate")
+_DURBAN_TICKET_TYPES = [
+    f"{tier} ({kind})"
+    for tier in _TICKET_TIERS
+    for kind in ("Durban", "Durban, Early Bird")
+]
+_ONLINE_TICKET_TYPES = [
+    f"{tier} ({kind})"
+    for tier in _TICKET_TIERS
+    for kind in ("Online", "Online, Early Bird")
+]
+
+
 def tickets_sold(ticket_types):
     """ Return number of tickets sold. """
     from wafer.tickets.models import Ticket, TicketType
@@ -119,31 +132,19 @@ def tickets_sold(ticket_types):
     return Ticket.objects.filter(type_id__in=ticket_type_ids).count()
 
 
-def main_conference_tickets_sold():
-    """ Return number of tickets sold for the main conference. """
-    from wafer.tickets.models import Ticket, TicketType
-
-    TUTORIAL_TICKET_TYPES = []
-    tutorial_type_ids = TicketType.objects.filter(
-        name__in=TUTORIAL_TICKET_TYPES)
-
-    return Ticket.objects.exclude(type_id__in=tutorial_type_ids).count()
+def durban_tickets_sold():
+    """ Number of tickets sold for the Durban in-person conference. """
+    return tickets_sold(_DURBAN_TICKET_TYPES)
 
 
-def main_conference_tickets_remaining():
-    """ Return number of main conference tickets remaining. """
-    return max(0, 250 - main_conference_tickets_sold())
+def durban_tickets_remaining():
+    """ Number of tickets remaining for the Durban in-person conference. """
+    return max(0, 100 - durban_tickets_sold())
 
 
-def early_bird_tickets_remaining():
-    """ Return number of early bird tickets remaining. """
-    early_bird_ticket_types = [
-        "Student (Early Bird)",
-        "Individual (Early Bird)",
-        "Corporate (Early Bird)",
-        "Pensioner (Early Bird)",
-    ]
-    return max(0, 250 - tickets_sold(early_bird_ticket_types))
+def online_tickets_sold():
+    """ Number of tickets sold for the online conference. """
+    return tickets_sold(_ONLINE_TICKET_TYPES)
 
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -162,12 +163,9 @@ MARKITUP_FILTER = (
         "extension_configs": {
             "mdx_variables": {
                 "vars": {
-                    "main_conference_tickets_sold":
-                        main_conference_tickets_sold,
-                    "main_conference_tickets_remaining":
-                        main_conference_tickets_remaining,
-                    "early_bird_tickets_remaining":
-                        early_bird_tickets_remaining,
+                    "durban_tickets_sold": durban_tickets_sold,
+                    "durban_tickets_remaining": durban_tickets_remaining,
+                    "online_tickets_sold": online_tickets_sold,
                 }
             }
         },
