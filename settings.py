@@ -122,6 +122,9 @@ _ONLINE_TICKET_TYPES = [
     for tier in _TICKET_TIERS
     for kind in ("Online", "Online, Early Bird")
 ]
+_TUTORIAL_DEVOPS_TICKET_TYPES = [
+    "Tutorial: Bridging the Gap Between DevOps and Data Professionals (Durban)"
+]
 
 
 def tickets_sold(ticket_types):
@@ -147,6 +150,11 @@ def online_tickets_sold():
     return tickets_sold(_ONLINE_TICKET_TYPES)
 
 
+def tutorial_devops_tickets_sold():
+    """ Number of tickets sold for the devops tutorial. """
+    return tickets_sold(_TUTORIAL_DEVOPS_TICKET_TYPES)
+
+
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 MARKITUP_FILTER = (
     "markdown.markdown",
@@ -166,6 +174,9 @@ MARKITUP_FILTER = (
                     "durban_tickets_sold": durban_tickets_sold,
                     "durban_tickets_remaining": durban_tickets_remaining,
                     "online_tickets_sold": online_tickets_sold,
+                    "tutorial_devops_tickets_sold": (
+                        tutorial_devops_tickets_sold
+                    ),
                 }
             }
         },
