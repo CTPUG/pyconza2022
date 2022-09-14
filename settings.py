@@ -125,6 +125,9 @@ _ONLINE_TICKET_TYPES = [
 _TUTORIAL_DEVOPS_TICKET_TYPES = [
     "Tutorial: Bridging the Gap Between DevOps and Data Professionals (Durban)"
 ]
+_TUTORIAL_GIS_TICKET_TYPES = [
+    "Tutorial: An Introduction to Web Mapping with Django (Durban)"
+]
 
 
 def tickets_sold(ticket_types):
@@ -155,6 +158,11 @@ def tutorial_devops_tickets_sold():
     return tickets_sold(_TUTORIAL_DEVOPS_TICKET_TYPES)
 
 
+def tutorial_gis_tickets_sold():
+    """ Number of tickets sold for the Django GIS tutorial. """
+    return tickets_sold(_TUTORIAL_GIS_TICKET_TYPES)
+
+
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 MARKITUP_FILTER = (
     "markdown.markdown",
@@ -177,6 +185,7 @@ MARKITUP_FILTER = (
                     "tutorial_devops_tickets_sold": (
                         tutorial_devops_tickets_sold
                     ),
+                    "tutorial_gis_tickets_sold": tutorial_gis_tickets_sold,
                 }
             }
         },
