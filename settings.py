@@ -194,6 +194,7 @@ MARKITUP_FILTER = (
                         tutorial_devops_tickets_sold
                     ),
                     "tutorial_gis_tickets_sold": tutorial_gis_tickets_sold,
+                    "tutorial_osw_tickets_sold": tutorial_osw_tickets_sold,
                 }
             }
         },
