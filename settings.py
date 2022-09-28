@@ -128,6 +128,9 @@ _TUTORIAL_DEVOPS_TICKET_TYPES = [
 _TUTORIAL_GIS_TICKET_TYPES = [
     "Tutorial: An Introduction to Web Mapping with Django (Durban)"
 ]
+_TUTORIAL_OSW_TICKET_TYPES = [
+    "Tutorial: Pyladies Open Source Workshop"
+]
 
 
 def tickets_sold(ticket_types):
@@ -161,6 +164,11 @@ def tutorial_devops_tickets_sold():
 def tutorial_gis_tickets_sold():
     """ Number of tickets sold for the Django GIS tutorial. """
     return tickets_sold(_TUTORIAL_GIS_TICKET_TYPES)
+
+
+def tutorial_osw_tickets_sold():
+    """ Number of tickets sold for the Django OSW tutorial. """
+    return tickets_sold(_TUTORIAL_OSW_TICKET_TYPES)
 
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
