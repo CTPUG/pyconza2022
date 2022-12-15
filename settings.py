@@ -108,6 +108,12 @@ WAFER_MENUS += (
         "image": "/static/img/twitter.png",
         "url": "https://twitter.com/pyconza",
     },
+    {
+        "name": "mastodon",
+        "label": "Mastodon",
+        "image": "/static/img/mastodon.png",
+        "url": "https://fosstodon.org/@pyconza",
+    },
 )
 
 
